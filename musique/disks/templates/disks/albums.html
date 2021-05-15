@@ -33,7 +33,7 @@ tr:nth-child(even) {
 
     {% for album in list_albums %}
     <tr>
-        <td>{{album.title}}</td>
+        <td><a href="{% url 'tracks' id=album.id%}"> {{album.title}}</a></td>
         <td>{{album.artist}}</td>
     </tr>
     {% endfor %}

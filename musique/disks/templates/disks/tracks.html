@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>{{album.title}} </h2>
+
+<table>
+
+  <tr>
+    <th>Name</th>
+    <th>Composer</th>
+    <th>Time</th>
+    <th>Bytes</th>
+    <th>UnitPrice</th>
+  </tr>
+
+    {% for track in tracks %}
+    <tr>
+        <td>{{track.name}}</td>
+        <td>{{track.composer}}</td>
+        <td> {% for obj in time %}
+                {% if track.id == obj|last %}
+                    {{obj|first}}</td>
+                {% endif %}
+            {% endfor %}
+        <td>{{track.bytes}}</td>
+        <td>{{track.unitPrice}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<Script>
+
+	function time($millisecond) {
+	   $sec = $millisecond //60
+	   $min = $sec //60
+	   $milli = $millisecond % 60
+	   return $min, $sec, $milli;
+	}
+
+    <!--const tracks = '{{tracks}}';
+	const tracker = tracks;
+    for (const track in tracks){
+	    document.getElementById(track.id).innerHTML = time(track.millisecond);
+    }-->
+</Script>
+
+</body>
+</html>
