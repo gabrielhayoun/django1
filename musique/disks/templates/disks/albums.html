@@ -24,6 +24,12 @@ tr:nth-child(even) {
 
 <h2>Music albums</h2>
 
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+</form>
+
+
 <table>
 
   <tr>
